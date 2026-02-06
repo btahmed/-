@@ -13,7 +13,10 @@ const Audio = {
   },
   
   playTone(frequency = 440, duration = 200) {
-    if (!this.context) return;
+    if (!this.context) {
+      console.warn('Audio context not initialized. Call Audio.init() first.');
+      return;
+    }
     
     const oscillator = this.context.createOscillator();
     const gainNode = this.context.createGain();

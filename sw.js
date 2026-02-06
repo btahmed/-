@@ -1,3 +1,4 @@
+// NOTE: Keep this version in sync with CONFIG.VERSION in js/config.js
 const CACHE_NAME = 'studentflow-v5.0.0';
 
 // ==================== OFFLINE-FIRST SERVICE WORKER ====================
