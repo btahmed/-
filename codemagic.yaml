@@ -1,0 +1,40 @@
+workflows:
+  studentflow-web:
+    name: StudentFlow PWA Build
+    max_build_duration: 15
+    instance_type: mac_mini_m2
+    triggering:
+      events:
+        - push
+        - pull_request
+      branch_patterns:
+        - pattern: main
+          include: true
+          source: true
+    scripts:
+      - name: Validate project structure
+        script: |
+          echo "Checking required files..."
+          for file in index.html studentflow_ultimate_pro.html offline.html manifest.json sw.js tailwind.min.js chart.min.js lucide.min.js jspdf.min.js confetti.min.js netlify.toml; do
+            test -f "$file" && echo "✅ $file found" || { echo "❌ $file missing"; exit 1; }
+          done
+      - name: Validate manifest.json
+        script: |
+          python3 -c "import json; json.load(open('manifest.json'))" && echo "✅ manifest.json is valid JSON" || { echo "❌ manifest.json is invalid"; exit 1; }
+      - name: Package web artifacts
+        script: |
+          mkdir -p build
+          cp index.html build/
+          cp studentflow_ultimate_pro.html build/
+          cp offline.html build/
+          cp manifest.json build/
+          cp sw.js build/
+          cp tailwind.min.js build/
+          cp chart.min.js build/
+          cp lucide.min.js build/
+          cp jspdf.min.js build/
+          cp confetti.min.js build/
+          cp netlify.toml build/
+          echo "✅ Web artifacts packaged"
+    artifacts:
+      - build/**
