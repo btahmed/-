@@ -1,4 +1,5 @@
-const CACHE_NAME = 'studentflow-v4.0.0';
+// NOTE: Keep this version in sync with CONFIG.VERSION in js/config.js
+const CACHE_NAME = 'studentflow-v5.0.0';
 
 // ==================== OFFLINE-FIRST SERVICE WORKER ====================
 // Strategy: ALWAYS serve from cache, update cache in background when online
@@ -8,11 +9,11 @@ const PRECACHE_ASSETS = [
   './',
   './studentflow_ultimate_pro.html',
   './offline.html',
-  './tailwind.min.js',
-  './chart.min.js',
-  './lucide.min.js',
-  './jspdf.min.js',
-  './confetti.min.js',
+  './lib/tailwind.min.js',
+  './lib/chart.min.js',
+  './lib/lucide.min.js',
+  './lib/jspdf.min.js',
+  './lib/confetti.min.js',
   './js/config.js',
   './js/storage.js',
   './js/audio.js'

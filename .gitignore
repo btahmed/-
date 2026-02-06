@@ -21,3 +21,9 @@ build/
 
 # Deployment config (auto-generated)
 windsurf_deployment.yaml
+
+# Service Worker cache
+sw.js.map
+
+# Environnement local
+.env.local

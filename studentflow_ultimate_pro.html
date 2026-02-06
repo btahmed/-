@@ -16,11 +16,11 @@
     <link rel="manifest" href="./manifest.json">
     
     <!-- BUNDLED LIBRARIES (offline-first) -->
-    <script src="./tailwind.min.js"></script>
-    <script src="./chart.min.js"></script>
-    <script src="./lucide.min.js"></script>
-    <script src="./jspdf.min.js"></script>
-    <script src="./confetti.min.js"></script>
+    <script src="./lib/tailwind.min.js"></script>
+    <script src="./lib/chart.min.js"></script>
+    <script src="./lib/lucide.min.js"></script>
+    <script src="./lib/jspdf.min.js"></script>
+    <script src="./lib/confetti.min.js"></script>
     <!-- Fallback font stack (no CDN needed) -->
     <style>
         @font-face {
@@ -4762,5 +4762,10 @@
             }
         }, 60000);
     </script>
+    
+    <!-- Custom JavaScript modules -->
+    <script src="./js/config.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/audio.js"></script>
 </body>
 </html>
